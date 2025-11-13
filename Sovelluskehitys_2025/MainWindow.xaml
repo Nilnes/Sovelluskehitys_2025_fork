@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
-        <TabControl SelectionChanged="TabControl_SelectionChanged">
+        <TabControl>
             <TabItem Header="Tuotteet">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
@@ -44,7 +44,20 @@
                     <TextBox x:Name="asiakas_puhelin" HorizontalAlignment="Left" Margin="210,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162"/>
                 </Grid>
             </TabItem>
+            <TabItem x:Name="tilaukset_tab" Header="Tilaukset" GotFocus="tilaukset_tab_GotFocus">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="69,100,71,50"/>
+                    <ComboBox x:Name="cb_tuote_tilaus" HorizontalAlignment="Left" Margin="102,42,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox x:Name="cb_asiakas_tilaus" HorizontalAlignment="Left" Margin="245,41,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Lisää tilaus" HorizontalAlignment="Left" Margin="498,26,0,0" VerticalAlignment="Top" Height="52" Width="91" Click="Button_Click_4"/>
+                </Grid>
+            </TabItem>
+            
         </TabControl>
-
+        <StatusBar VerticalAlignment="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="status_text" Text="Valmis"/>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>
